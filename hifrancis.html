@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hi Francis</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="1.jpg" type="image/x-icon">
+</head>
+<body>
+
+    <canvas id="canvas"></canvas>
+
+    <div class="container">
+        <h1>Hello, Hon!</h1>
+        <p>Since you challenged me <br> Here you go</p>
+
+        <a class="link" href="hello.html"><button class="btn">Click Me!</button></a>
+    </div>
+        
+<audio id="bgm" src="music1.mp3" loop muted></audio>
+
+    <script src="heart_cursor.js"></script>
+
+    <script>
+        const audio = document.getElementById("bgm");
+
+
+        audio.play().catch(() => {});
+
+        const startMusic = () => {
+            audio.muted = false; 
+            audio.play();       
+            document.removeEventListener("click", startMusic);
+            document.removeEventListener("keydown", startMusic);
+        };
+
+        document.addEventListener("click", startMusic);
+        document.addEventListener("keydown", startMusic);
+    </script>
+</body>
+</html>
